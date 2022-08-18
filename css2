@@ -1,0 +1,11 @@
+.light-color{
+    background-color: rgb(243,242,242);
+}
+ 
+.blue-color{
+    background-color: rgb(53 197 241);
+}
+ 
+.green-border{
+    border: solid green;
+}
