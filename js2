@@ -1,0 +1,46 @@
+import { LightningElement } from 'lwc';
+ 
+export default class DynamicCSSExample extends LightningElement {
+    //Since spring release @track is no longer required unless using object or array
+    //https://releasenotes.docs.salesforce.com/en-us/spring20/release-notes/rn_lwc_track.htm
+ 
+    //Default to false
+    buttonClicked;
+ 
+    //Initialize with light color 
+    divColor = 'light-color';
+ 
+    //Toggle CSS class
+    toggleColor(){
+        //Set to true if false, if true set to false
+        this.buttonClicked = !this.buttonClicked;
+        //If button clicked is true use blue color - otherwise use standard light color css class
+        this.divColor = this.buttonClicked ? 'blue-color' : 'light-color';
+    }
+ 
+    //Toggle CSS class variable for border and background color
+    toggleColorAndBorder(){
+        //Set to true if false, if true set to false
+        this.buttonClicked = !this.buttonClicked;
+        //Now adding two css classes
+        this.divColor = this.buttonClicked ? 'blue-color green-border' : 'light-color';
+    }
+ 
+    appendClass(){
+        //Using template query selecter add green-border css class to the div element
+        this.template.querySelector('div').classList.add('green-border');
+    }
+
+ 
+    removeClass(){
+        //Remove the green border class on the div element
+        this.template.querySelector('div').classList.remove('green-border');
+    }
+ 
+    toggleClass(){
+        //Toggle green border class on the div element
+        this.template.querySelector('div').classList.toggle('green-border');
+ 
+    }
+    
+}
